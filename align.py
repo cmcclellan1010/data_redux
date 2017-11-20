@@ -4,6 +4,8 @@ import numpy as np
 import matplotlib.pyplot as plt
 from scipy.ndimage import interpolation as interp
 from skimage.feature.register_translation import (register_translation, _upsampled_dft)
+import warnings
+warnings.filterwarnings('ignore')
 
 input = search_names('stacked', 'Input the object name: ')
 

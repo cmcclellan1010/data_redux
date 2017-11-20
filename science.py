@@ -4,7 +4,6 @@ import numpy as np
 import matplotlib.pyplot as plt
 from skimage.feature.register_translation import (register_translation, _upsampled_dft)
 from scipy.ndimage import interpolation as interp
-
 import warnings
 warnings.filterwarnings('ignore')
 
@@ -35,7 +34,7 @@ imshifts = {}
 for image in science_list:
     result, error, diffphase = register_translation(
         image_data[zero_shift_image],
-        image_data[image], 750)
+        image_data[image], 500)
     imshifts[image] = result
 
 shifted_science_data = {}
@@ -46,10 +45,10 @@ science_cube = np.stack(shifted_science_data.values(), axis=0)
 science_stacked = np.average(science_cube, axis=0)
 # science_stacked = np.median(science_cube, axis=0)
 
-plt.figure(1)
 plt.figure(figsize=(15, 15))
 plt.title('Aligned and Stacked Science image')
 plt.imshow(np.log10(science_stacked), origin='lower', cmap='gray', vmin=1.5, vmax=3)
+plt.show()
 
 name = raw_input("Input the name of this object (for saving the final image): ")
 
