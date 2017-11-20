@@ -28,3 +28,7 @@ Each exposure time you use must have a corresponding master dark of the same dur
 4. Look at the figures. Make sure the number of images you were expecting show up.
 5. Check to make sure the "master_dark_[exposure time]" file saved properly in the directory.
 6. Repeat steps 2-5 for all the different exposure times you'll need master darks for.
+
+## 3. Master Flats
+For every filter you take images in, you will need a flat field in that filter. Flat fields must be dark-subtracted, so you will also need a master dark matching the exposure time of each flat. 
+
