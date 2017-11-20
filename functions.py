@@ -1,0 +1,33 @@
+import numpy as np
+import matplotlib.pyplot as plt
+import matplotlib.gridspec as gs
+from glob import glob
+
+
+def plot_grid(datacube, imagenames):
+    n_images = len(datacube)
+    xplots = int(np.around(np.sqrt(n_images)))
+    yplots = xplots + 1
+    gridspec = gs.GridSpec(yplots, xplots)
+    plt.figure(figsize=(15, 15))
+    for i in range(n_images):
+        image = datacube[i]
+        plt.subplot(gridspec[i])
+        plt.imshow(np.log10(image), origin='lower', cmap='gray')
+        plt.title(imagenames[i])
+
+
+def search_names(img_type='_', prompt1='_', prompt2='_'):
+    id1 = prompt1
+    id2 = prompt2
+    if prompt1 != '_':
+        id1 = raw_input(prompt1)
+    if prompt2 != '_':
+        id2 = raw_input(prompt2)
+    filename_list = []
+    for filename in glob('*.FIT'):
+        if img_type in filename and id1 in filename and id2 in filename:
+            filename_list.append(filename)
+    return filename_list, id1, id2
+
+
