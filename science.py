@@ -36,13 +36,13 @@ print "\nShifting and stacking images..."
 imshifts = {}
 for image in science_list:
     result, error, diffphase = register_translation(
-        science_cube[zero_shift_image],
-        science_cube[image], 750)
+        image_data[zero_shift_image],
+        image_data[image], 750)
     imshifts[image] = result
 
 shifted_science_data = {}
 for i in range(len(science_list)):
-    shifted_science_data[science_list[i]] = interp.shift(science_cube[science_list[i]], imshifts[science_list[i]])
+    shifted_science_data[science_list[i]] = interp.shift(image_data[science_list[i]], imshifts[science_list[i]])
 
 science_cube = np.stack(shifted_science_data.values(), axis=0)
 science_stacked = np.average(science_cube, axis=0)
