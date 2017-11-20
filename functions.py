@@ -2,7 +2,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 import matplotlib.gridspec as gs
 from glob import glob
-
+from astropy.io import fits
 
 def plot_grid(datacube, imagenames):
     n_images = len(datacube)

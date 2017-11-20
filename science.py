@@ -5,6 +5,9 @@ import matplotlib.pyplot as plt
 from skimage.feature.register_translation import (register_translation, _upsampled_dft)
 from scipy.ndimage import interpolation as interp
 
+import warnings
+warnings.filterwarnings('ignore')
+
 input = search_names(prompt1="Input the exposure time identifier for these science images: ",
                      prompt2="Input the filter identifier for these science images: ")
 
@@ -47,7 +50,6 @@ plt.figure(1)
 plt.figure(figsize=(15, 15))
 plt.title('Aligned and Stacked Science image')
 plt.imshow(np.log10(science_stacked), origin='lower', cmap='gray', vmin=1.5, vmax=3)
-plt.show()
 
 name = raw_input("Input the name of this object (for saving the final image): ")
 
