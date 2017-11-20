@@ -20,3 +20,22 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
+
+
+Academic Use Agreement
+
+The Software itself, or any substantial portion of the Software, is not to be 
+submitted as any student's work for credit at the University of Florida or any 
+other academic institution. Under the UF Academic Honor Code, this consitutes 
+plagiarism. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR 
+ANY ACADEMIC MISCONDUCT ARISING FROM, OUT OF, OR IN CONNECTION WITH THE SOFTWARE
+OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+
+University of Florida Honor Code
+
+"We, the members of the University of Florida community, pledge to hold 
+ourselves and our peers to the highest standards of honesty and integrity.
+On all work submitted for credit by students at the university, the following 
+pledge is either required or implied: On my honor, I have neither given nor 
+received unauthorized aid in doing this assignment."
+
