@@ -1,4 +1,4 @@
-from functions import search_names, plot_grid
+from functions import search_names, plot_grid, load_fits
 from astropy.io import fits
 import numpy as np
 import matplotlib.pyplot as plt
@@ -12,13 +12,8 @@ science_list = input[0]
 exposure_time = input[1]
 filter_id = input[2]
 
-hdu_list = fits.open('master_dark_'+exposure_time+'.fit')
-master_dark = hdu_list[0].data
-hdu_list.close()
-
-hdu_list = fits.open('master_flat_'+filter_id+'.fit')
-master_flat = hdu_list[0].data
-hdu_list.close()
+master_dark = load_fits('master_dark_'+exposure_time+'.fit')
+master_flat = load_fits('master_flat_'+filter_id+'.fit')
 
 image_data = {}
 for image_name in science_list:
@@ -49,7 +44,7 @@ science_stacked = np.average(science_cube, axis=0)
 # science_stacked = np.median(science_cube, axis=0)
 
 plt.figure(1)
-plt.figure(figsize=(15, 15));
+plt.figure(figsize=(15, 15))
 plt.title('Aligned and Stacked Science image')
 plt.imshow(np.log10(science_stacked), origin='lower', cmap='gray', vmin=1.5, vmax=3)
 plt.show()
@@ -58,5 +53,4 @@ name = raw_input("Input the name of this object (for saving the final image): ")
 
 hdu = fits.PrimaryHDU(science_stacked)
 hdu.writeto('stacked_'+name+'_'+filter_id+'_'+exposure_time+'.fit')
-
 print "\nStacked science image saved as 'stacked_"+name+"_"+filter_id+"_"+exposure_time+".fit'."

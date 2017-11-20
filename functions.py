@@ -31,3 +31,9 @@ def search_names(img_type='_', prompt1='_', prompt2='_'):
     return filename_list, id1, id2
 
 
+def load_fits(filename):
+    hdu_list = fits.open(filename)
+    data = hdu_list[0].data
+    hdu_list.close()
+    return data
+

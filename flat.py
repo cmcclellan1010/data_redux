@@ -1,7 +1,7 @@
 import numpy as np
 import matplotlib.pyplot as plt
 from astropy.io import fits
-from functions import plot_grid, search_names
+from functions import plot_grid, search_names, load_fits
 
 input = search_names("flat", "Input the exposure time identifier for this set of flats: ",
                      "Input the filter identifier for this flat frame: ")
@@ -10,7 +10,7 @@ flat_list = input[0]
 exposure_time = input[1]
 filter_id = input[2]
 
-master_dark = fits.open('master_dark_'+str(exposure_time)+'.fit')[0].data
+master_dark = load_fits('master_dark_'+str(exposure_time)+'.fit')
 
 image_data = {}
 for image_name in flat_list:
