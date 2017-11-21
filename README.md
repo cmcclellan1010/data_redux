@@ -1,6 +1,12 @@
 # data_redux
 Code for dark-subtracting, flat-dividing, aligning, and stacking single-filter fits files for color image synthesis in DS9.
 
+### Known Bugs
+* Faint images, especially in blue filter, have trouble aligning properly. Making the upsampling factor lower appears to fix this issue, with some downsides. Adaptive upsampling should be incorporated as a permanent fix.
+* When displaying the image grid, some science images display pure static, or mangled versions of the images. This is a display issue and does not mean anything is wrong with the files themselves. The final image shows up fine, without any static.
+
+# Using the Software
+
 ## File Naming Conventions
 For this software to work properly, each image must contain certain tags to uniquely specify the file's exposure time, filter, etc. The exact format of each of the tags does not matter, as long as they are consistent throughout an entire observing run and they are separated by underscores.
 
