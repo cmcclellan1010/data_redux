@@ -27,7 +27,7 @@ def search_names(img_type='_', prompt1='_', prompt2='_'):
         id2 = raw_input(prompt2)
     filename_list = []
     for filename in list(set().union(glob('*.FIT'),glob('*.fit'))):
-        if img_type in filename and id1 in filename and id2 in filename:
+        if img_type in filename and "_"+id1+"_" in filename and "_"+id2+"_" in filename:
             filename_list.append(filename)
     return filename_list, id1, id2
 
