@@ -5,6 +5,9 @@ Code for dark-subtracting, flat-dividing, aligning, and stacking single-filter f
 * Faint images, especially in blue filter, have trouble aligning properly. Making the upsampling factor lower appears to fix this issue, with some downsides. Adaptive upsampling should be incorporated as a permanent fix.
 * When displaying the image grid, some science images display pure static, or mangled versions of the images. This is a display issue and does not mean anything is wrong with the files themselves. The final image shows up fine, without any static.
 
+### Fixed Bugs
+* "science.py" would look for the filter tag "r", and find it in files like "maste**r**_dark_30s.fit". This has been resolved by searching for tags with underscores in front and behind them, ex: looking for "_r_" in the filename instead of "r".
+
 # Using the Software
 
 ## File Naming Conventions
