@@ -18,16 +18,16 @@ def plot_grid(datacube, imagenames):
         plt.title(imagenames[i])
 
 
-def search_names(img_type='_', prompt1='_', prompt2='_'):
+def search_names(img_type='', prompt1='', prompt2=''):
     id1 = prompt1
     id2 = prompt2
-    if prompt1 != '_':
+    if prompt1 != '':
         id1 = raw_input(prompt1)
-    if prompt2 != '_':
+    if prompt2 != '':
         id2 = raw_input(prompt2)
     filename_list = []
     for filename in list(set().union(glob('*.FIT'),glob('*.fit'))):
-        if img_type in filename and "_"+id1+"_" in filename and "_"+id2+"_" in filename:
+        if img_type in filename and "_"+id1 in filename and "_"+id2 in filename:
             filename_list.append(filename)
     return filename_list, id1, id2
 

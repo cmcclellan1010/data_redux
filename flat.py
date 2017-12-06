@@ -22,14 +22,14 @@ flat_cube = np.stack([image_data[image_name] for image_name in flat_list], axis=
 plot_grid(flat_cube, flat_list)
 plt.show()
 
-master_flat = np.average(flat_cube, axis=0)
+master_flat = np.median(flat_cube, axis=0)
 
 print '\nmaster flat median: %.3f counts' % np.median(master_flat)
 print 'master flat mean: %.3f counts' % np.mean(master_flat)
 print 'master flat max value: %.3f counts' % np.max(master_flat)
 print 'master flat min value: %.3f counts' % np.min(master_flat)
 
-normalized_master_flat = master_flat/np.mean(master_flat)
+normalized_master_flat = master_flat/np.median(master_flat)
 
 # PREVIEW MASTER FLAT
 plt.figure(figsize=(15, 15))

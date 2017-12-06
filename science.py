@@ -42,8 +42,8 @@ for i in range(len(science_list)):
     shifted_science_data[science_list[i]] = interp.shift(image_data[science_list[i]], imshifts[science_list[i]])
 
 science_cube = np.stack(shifted_science_data.values(), axis=0)
-science_stacked = np.average(science_cube, axis=0)
-# science_stacked = np.median(science_cube, axis=0)
+# science_stacked = np.average(science_cube, axis=0)
+science_stacked = np.median(science_cube, axis=0)
 
 plt.figure(figsize=(15, 15))
 plt.title('Aligned and Stacked Science image')
