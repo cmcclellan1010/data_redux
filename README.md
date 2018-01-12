@@ -1,3 +1,15 @@
+# Automated Photometry Tool Version 0.1
+Script which uses user's mouse clicks to collect positions of three target stars clicked on in an image. The relative geometry between them is saved and matched in each subsequent image using a distance minimization Monte Carlo procedure to ensure photometry is performed on the same target stars in each image. Utilizes the DAOStarFind algorithm for source detection.
+
+## APT V0.1 - phot_hr.py
+APT applied to two aligned images of a globular cluster. Mouse click input is ignored in this script -- instead, the intersection of detected sources between both images is taken and photometric data obtained from each. Using this script, an HR diagram of M15's red giant branch was constructed.
+
+## APT V0.1 - phot_variability.py
+APT applied to ~30 images of HD 345439, an ultra-magnetic star that displays periodic variations in brightness. This script collects mouse click input for the target star and two reference stars. The relative geometry between them is saved and matched in each subsequent image using a distance minimization Monte Carlo procedure. After photometric information is collected, flux measurements are calculated and matched with the time of the observation, and output as a FITS file for further processing.
+
+# Lomb-Scargle Periodogram
+This script loads the FITS file exported by phot_variability.py, and applies a Lomb-Scargle Periodogram function to extract flux variability from the data. Power is plotted versus frequency, and a Monte Carlo procedure determines the percent confidence in the detection by scrambling the flux data within the window function of observations.
+
 # data_redux
 Code for dark-subtracting, flat-dividing, aligning, and stacking single-filter fits files for color image synthesis in DS9.
 

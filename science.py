@@ -53,5 +53,5 @@ plt.show()
 name = raw_input("Input the name of this object (for saving the final image): ")
 
 hdu = fits.PrimaryHDU(science_stacked)
-hdu.writeto('stacked_'+name+'_'+filter_id+'_'+exposure_time+'.fit')
-print "\nStacked science image saved as 'stacked_"+name+"_"+filter_id+"_"+exposure_time+".fit'."
+hdu.writeto(name+'_'+filter_id+'_'+exposure_time+'.fit')
+print "\nStacked science image saved as '"+name+"_"+filter_id+"_"+exposure_time+".fit'."

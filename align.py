@@ -1,5 +1,6 @@
 from functions import plot_grid, search_names
 from astropy.io import fits
+import os
 import numpy as np
 import matplotlib.pyplot as plt
 from scipy.ndimage import interpolation as interp
@@ -36,7 +37,10 @@ shifted_science_data = {}
 for i in range(len(stacked_list)):
     shifted_science_data[stacked_list[i]] = interp.shift(image_data[stacked_list[i]], imshifts[stacked_list[i]])
 
+if not os.path.exists("./aligned/"):
+    os.makedirs("./aligned/")
+
 for filename in stacked_list:
     hdu = fits.PrimaryHDU(shifted_science_data[filename])
-    hdu.writeto("aligned_"+filename[8:])
-    print "Aligned science image saved as 'aligned_"+filename[8:]+"."
+    hdu.writeto("./aligned/"+filename)
+    print "Aligned science image saved to ./aligned/"+filename+"."
